@@ -1,5 +1,9 @@
 # Feature Flag Auditor
 
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/) [![GitHub stars](https://img.shields.io/github/stars/yksanjo/feature-flag-auditor?style=social)](https://github.com/yksanjo/feature-flag-auditor/stargazers) [![GitHub forks](https://img.shields.io/github/forks/yksanjo/feature-flag-auditor.svg)](https://github.com/yksanjo/feature-flag-auditor/network/members) [![GitHub issues](https://img.shields.io/github/issues/yksanjo/feature-flag-auditor.svg)](https://github.com/yksanjo/feature-flag-auditor/issues)
+[![Last commit](https://img.shields.io/github/last-commit/yksanjo/feature-flag-auditor.svg)](https://github.com/yksanjo/feature-flag-auditor/commits/main)
+
+
 Scans codebase and feature flag providers to identify unused, stale, or risky feature flags.
 
 ## Features

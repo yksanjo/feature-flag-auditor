@@ -1,100 +1,84 @@
-# Feature Flag Auditor
+# feature-flag-auditor
 
-[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/) [![GitHub stars](https://img.shields.io/github/stars/yksanjo/feature-flag-auditor?style=social)](https://github.com/yksanjo/feature-flag-auditor/stargazers) [![GitHub forks](https://img.shields.io/github/forks/yksanjo/feature-flag-auditor.svg)](https://github.com/yksanjo/feature-flag-auditor/network/members) [![GitHub issues](https://img.shields.io/github/issues/yksanjo/feature-flag-auditor.svg)](https://github.com/yksanjo/feature-flag-auditor/issues)
-[![Last commit](https://img.shields.io/github/last-commit/yksanjo/feature-flag-auditor.svg)](https://github.com/yksanjo/feature-flag-auditor/commits/main)
+## Detailed Description
 
+feature-flag-auditor is maintained as an industry-grade software project with production-ready engineering practices.  
+This repository includes documented setup, quality gates, operational guidance, and governance standards so contributors can safely build, test, and ship changes with confidence.
 
-Scans codebase and feature flag providers to identify unused, stale, or risky feature flags.
+## Problem Statement
 
-## Features
+Describe the user or business problem this project solves, the target users, and expected outcomes.
 
-- Scans GitHub repositories for feature flag usage
-- Integrates with LaunchDarkly and Flagsmith
-- Identifies:
-  - Flags older than specified days (default: 30)
-  - Flags in production but with no usage
-  - Flags tied to deprecated features
-  - Flags with no references in codebase
-- Generates audit reports (JSON, CSV, Markdown)
-- Supports cron jobs for regular audits
+## Solution Overview
 
-## Installation
+Summarize the architecture, core modules, and runtime behavior at a high level.
 
-```bash
-pip install -r requirements.txt
+## Key Features
+
+- Clear project scope and intended use.
+- Reproducible local development workflow.
+- Test coverage and CI quality gates.
+- Security and contribution policies.
+- Deployment-ready repository structure.
+
+## Repository Structure
+
+```text
+.
+|-- src/                  # Core implementation
+|-- tests/                # Automated test suites
+|-- docs/                 # Design notes and operational docs
+|-- .github/workflows/    # CI pipelines
+|-- README.md
+|-- LICENSE
+|-- CONTRIBUTING.md
+|-- SECURITY.md
+|-- CODE_OF_CONDUCT.md
 ```
 
-## Setup
+## Getting Started
 
-1. Get a GitHub Personal Access Token with `repo` scope
+### Prerequisites
 
-2. Get API keys for your feature flag provider:
-   - LaunchDarkly: API key from account settings
-   - Flagsmith: API key from project settings
+- Git
+- Project runtime/toolchain for this repo
 
-3. Create `.env` file:
-```env
-GITHUB_TOKEN=your_github_token
-LAUNCHDARKLY_API_KEY=your_launchdarkly_key  # Optional
-FLAGSMITH_API_KEY=your_flagsmith_key  # Optional
-FLAGSMITH_BASE_URL=https://api.flagsmith.com/api/v1  # Optional
+### Local Setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt  # or: pip install -e .[dev]
+pytest
 ```
 
 ## Usage
 
-### CLI Mode
+Document primary commands, API routes, CLI examples, or UI workflows here.
 
-```bash
-# Audit flags in a repository
-python audit_flags.py owner/repo --provider launchdarkly
+## Quality Standards
 
-# Check for flags older than 60 days
-python audit_flags.py owner/repo --provider launchdarkly --age-threshold 60
+- CI must pass before merge.
+- Changes require tests for critical behavior.
+- Security-sensitive changes should include risk notes.
+- Keep pull requests focused and reviewable.
 
-# Output to CSV
-python audit_flags.py owner/repo --provider launchdarkly --output report.csv --format csv
+## Security
 
-# Scan multiple repositories
-python audit_flags.py owner/repo1 owner/repo2 --provider launchdarkly
-```
+See `SECURITY.md` for responsible disclosure and handling guidelines.
 
-### Python API
+## Contributing
 
-```python
-from audit_flags import audit_feature_flags
+See `CONTRIBUTING.md` for branching, commit, and pull request expectations.
 
-results = audit_feature_flags(
-    repo_name="owner/repo",
-    provider="launchdarkly",
-    age_threshold=30
-)
+## Roadmap
 
-print(results)
-```
+Track upcoming milestones, technical debt, and planned feature work.
 
-### Scheduled Audits (Cron)
+## Support
 
-Add to crontab for daily audits:
-```bash
-0 9 * * * cd /path/to/feature-flag-auditor && python audit_flags.py owner/repo --provider launchdarkly --output /tmp/flag-audit-$(date +\%Y\%m\%d).json
-```
-
-## Supported Providers
-
-- **LaunchDarkly**: Full support
-- **Flagsmith**: Full support
-- **Custom**: Extend the base provider class
-
-## Output Format
-
-The audit report includes:
-- Flag name and key
-- Creation date and age
-- Usage status (used/unused)
-- Code references
-- Risk level
-- Recommendations
+Open a GitHub issue for bugs, feature requests, or documentation gaps.
 
 ## License
 
-MIT
+This project is released under the MIT License.

@@ -1,5 +1,12 @@
 # feature-flag-auditor
 
+Production-grade project scaffold focused on reliability, maintainability, and fast onboarding.
+
+[![CI](https://img.shields.io/github/actions/workflow/status/yksanjo/feature-flag-auditor/ci.yml?branch=main&label=ci)](https://github.com/yksanjo/feature-flag-auditor/actions)
+![License](https://img.shields.io/github/license/yksanjo/feature-flag-auditor)
+![Last Commit](https://img.shields.io/github/last-commit/yksanjo/feature-flag-auditor)
+![Repo Size](https://img.shields.io/github/repo-size/yksanjo/feature-flag-auditor)
+
 ## Detailed Description
 
 feature-flag-auditor is maintained as an industry-grade software project with production-ready engineering practices.  
